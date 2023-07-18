@@ -1,7 +1,8 @@
 import makeUser from "../../entities";
-import {makeCreateUserParams} from './type'
-export default function makeCreateUser({ Joi, ValidationError, userDb, jwt }:makeCreateUserParams ) {
-  return async function createUser({ username }: {username: string}) {
+import { makeCreateUserParams } from './type'
+
+export default function makeCreateUser({ Joi, ValidationError, userDb, jwt }: makeCreateUserParams) {
+  return async function createUser({ username }: { username: string }) {
     validateInput({ username });
     const isUserNameExist = await userDb.getUserByUserName({ username });
     if (isUserNameExist) {

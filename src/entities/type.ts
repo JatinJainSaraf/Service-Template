@@ -1,7 +1,7 @@
-
+import { UserDb } from "../data-access/type";
 export interface buildMakeUserParams  {
     Joi: any,
     ValidationError: any,
-    userDb: any,
+    userDb: UserDb,
     jwt: any,
 }

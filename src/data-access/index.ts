@@ -1,7 +1,9 @@
 import createSequelizeInstance from './db'
-const sequelizeInstance = createSequelizeInstance();
+import { UserDb } from './type';
 import makeUsersDb from './user.db';
-const userDb= makeUsersDb();
+
+const sequelizeInstance = createSequelizeInstance();
+const userDb= makeUsersDb()as UserDb;
 const db = {
     sequelizeInstance, userDb
 };

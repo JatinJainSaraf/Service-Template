@@ -20,7 +20,6 @@ export function formatResponse({
     formattedResponse.body = {
       message: body.message,
       name: body.name,
-      // Add a type assertion for the errorCode property if it's available on the Error object
       code: (body as { errorCode?: string }).errorCode,
     };
     formattedResponse.headers['content-type'] = 'application/json';

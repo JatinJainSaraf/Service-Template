@@ -14,8 +14,8 @@ export interface FormattedResponseParams {
     };
   }
 
-  export interface GreetActionParams {
-    greet: () => any; // Replace 'any' with the actual return type of 'greet'.
-    formatResponse: (params: FormattedResponseParams) => any; // Replace 'any' with the actual return type of 'formatResponse'.
-    formatError: (params: FormatErrorParams) => any; // Replace 'any' with the actual return type of 'formatError'.
+  export interface MakeGreetActionParams {
+    greet: () => string; 
+    formatResponse: (params: FormattedResponseParams) => any; 
+    formatError: (params: FormatErrorParams) => any;
   }

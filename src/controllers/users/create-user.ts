@@ -13,7 +13,7 @@ function makeCreateUserAction({createUser, formatResponse, formatError, Joi, Val
         return formatError({error: e} as any);
       }
     };
-    function validateInput({ username }: {username: string}) {
+    function validateInput({ username }: {username: string}): void {
       const schema = Joi.object({
         username: Joi.string()
           .regex(/^[a-zA-Z][a-zA-Z0-9]*$/)

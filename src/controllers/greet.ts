@@ -1,6 +1,6 @@
-import { GreetActionParams } from "./type";
-const makeGreetAction=({greet, formatResponse, formatError}: GreetActionParams)=> {
-    return async function greetAction(httpRequest: {}) {
+import { MakeGreetActionParams } from "./type";
+const makeGreetAction=({greet, formatResponse, formatError}: MakeGreetActionParams)=> {
+    return async function greetAction() {
       try {
         const message = greet();
         return formatResponse(
