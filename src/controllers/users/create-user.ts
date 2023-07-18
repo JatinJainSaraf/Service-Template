@@ -1,5 +1,7 @@
-function makeCreateUserAction({createUser, formatResponse, formatError, Joi, ValidationError}) {
-    return async function createUserAction(httpRequest) {
+import { makeCreateUserActionParams } from "./type";
+
+function makeCreateUserAction({createUser, formatResponse, formatError, Joi, ValidationError}: makeCreateUserActionParams) {
+    return async function createUserAction(httpRequest: {body: {username: string}}) {
         const {body: {username}} = httpRequest;
       try {
         validateInput({username})
@@ -8,10 +10,10 @@ function makeCreateUserAction({createUser, formatResponse, formatError, Joi, Val
             {contentType: 'text/plain', statusCode: 200, body: user});
       } catch (e) {
         console.error(`Got error in createUser controller`, e);
-        return formatError({error: e});
+        return formatError({error: e} as any);
       }
     };
-    function validateInput({ username }) {
+    function validateInput({ username }: {username: string}) {
       const schema = Joi.object({
         username: Joi.string()
           .regex(/^[a-zA-Z][a-zA-Z0-9]*$/)
@@ -31,5 +33,5 @@ function makeCreateUserAction({createUser, formatResponse, formatError, Joi, Val
     }
   }
   
-  module.exports = makeCreateUserAction;
+  export default makeCreateUserAction;
   

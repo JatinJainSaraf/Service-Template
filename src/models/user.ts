@@ -1,8 +1,8 @@
-const { DataTypes } = require('sequelize');
-const createSequelizeInstance = require('../data-access/db');
+import { DataTypes } from "sequelize";
+import createSequelizeInstance from "../data-access/db";
 const sequelizeInstance = createSequelizeInstance();
 
-const User = sequelizeInstance.define('users', {
+const UserModel = sequelizeInstance.define('users', {
     id: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -26,4 +26,4 @@ const User = sequelizeInstance.define('users', {
     },
   });
 
-  module.exports= User;
+export default UserModel;

@@ -1,5 +1,5 @@
-module.exports = function makeHttpCallback({ controller }) {
-    return async (req, res) => {
+const makeHttpCallback =({ controller }: {controller: any})=> {
+    return async (req: {body: {}, query: {}, params: {}, method: string, headers: {}}, res: any) => {
       const httpRequest = {
         body: req.body,
         query: req.query,
@@ -17,3 +17,4 @@ module.exports = function makeHttpCallback({ controller }) {
     };
   };
   
+  export default makeHttpCallback;

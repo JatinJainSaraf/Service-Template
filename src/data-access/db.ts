@@ -1,15 +1,15 @@
-const { Sequelize } = require('sequelize');
-const pg = require('../config').pg;
+import { Sequelize } from "sequelize";
+import config from "../config";
 
-function createSequelizeInstance() {
+const createSequelizeInstance = () => {
   // Create a new Sequelize instance with the PostgreSQL connection configuration
   const sequelize = new Sequelize(
-    pg.DB_NAME,
-    pg.DB_USER,
-    pg.DB_PASSWORD,
+    config.pg.DB_NAME,
+    config.pg.DB_USER,
+    config.pg.DB_PASSWORD,
     {
-      host: pg.DB_HOST,
-      port: pg.DB_PORT,
+      host: config.pg.DB_HOST,
+      port: config.pg.DB_PORT,
       dialect: 'postgres',
     }
   );
@@ -25,5 +25,4 @@ function createSequelizeInstance() {
 
   return sequelize;
 }
-
-module.exports = createSequelizeInstance;
+export default createSequelizeInstance;

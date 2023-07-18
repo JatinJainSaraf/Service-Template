@@ -1,7 +1,8 @@
-module.exports = function buildMakeUser({Joi, ValidationError}) {
+import { buildMakeUserParams } from "./type";
+export function buildMakeUser({Joi, ValidationError}: buildMakeUserParams) {
     return function makeUser({
       username
-    }) {
+    }: {username: string}) {
         const schema = Joi.object({
             username: Joi.string()
               .regex(/^[a-zA-Z][a-zA-Z0-9]*$/)
